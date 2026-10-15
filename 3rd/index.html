@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Aether GT — an interactive Three.js electric grand tourer showcase."
+    />
+    <title>Aether GT — Electric, Reimagined</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Aether home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        AETHER
+      </a>
+      <nav aria-label="Primary navigation">
+        <a class="active" href="#explore">Explore</a>
+        <a href="#engineering">Engineering</a>
+        <a href="#specs">Specifications</a>
+      </nav>
+      <button class="reserve-button">Reserve yours <span>↗</span></button>
+    </header>
+
+    <main>
+      <section class="hero" id="explore">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> Introducing Aether GT</p>
+          <h1>Motion,<br /><em>made electric.</em></h1>
+          <p class="intro">
+            A grand tourer shaped by air, powered by silence, and engineered
+            for the road ahead.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-action" href="#engineering">Discover the GT <span>↓</span></a>
+            <button class="sound-toggle" aria-label="Toggle ambient sound">
+              <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+              Sound off
+            </button>
+          </div>
+        </div>
+
+        <div class="stage-wrap">
+          <canvas id="car-canvas" aria-label="Interactive 3D model of the Aether GT"></canvas>
+          <div class="stage-glow"></div>
+          <div class="loading-screen">
+            <span class="loader"></span>
+            <p>Building Aether GT</p>
+          </div>
+          <div class="feature-label" data-feature="aero">
+            <button class="label-dot" aria-label="View active aerodynamics">+</button>
+            <div>
+              <span>01</span>
+              <strong>Active aero</strong>
+            </div>
+          </div>
+          <div class="feature-label" data-feature="power">
+            <button class="label-dot" aria-label="View electric powertrain">+</button>
+            <div>
+              <span>02</span>
+              <strong>Dual motor</strong>
+            </div>
+          </div>
+          <div class="feature-label" data-feature="light">
+            <button class="label-dot" aria-label="View lighting system">+</button>
+            <div>
+              <span>03</span>
+              <strong>Matrix vision</strong>
+            </div>
+          </div>
+          <div class="drag-hint">
+            <span class="mouse-icon"></span>
+            Drag to explore
+          </div>
+        </div>
+
+        <div class="hero-meta">
+          <div><span>0–100 KM/H</span><strong>2.7<small>s</small></strong></div>
+          <div><span>EST. RANGE</span><strong>620<small>km</small></strong></div>
+          <div><span>PEAK POWER</span><strong>780<small>hp</small></strong></div>
+        </div>
+        <p class="model-number">MODEL / AGT—01</p>
+      </section>
+
+      <section class="engineering" id="engineering">
+        <div class="section-heading">
+          <p class="eyebrow"><span></span> Engineered with intent</p>
+          <h2>Every surface<br />has a <em>purpose.</em></h2>
+        </div>
+        <div class="feature-details">
+          <article class="detail-card active" data-detail="aero">
+            <span>01 / AERODYNAMICS</span>
+            <h3>Shape the air.</h3>
+            <p>
+              An adaptive rear wing and sculpted air channels respond in
+              milliseconds, balancing downforce and efficiency at every speed.
+            </p>
+            <div class="detail-stat"><strong>0.21</strong><small>drag coefficient</small></div>
+          </article>
+          <article class="detail-card" data-detail="power">
+            <span>02 / PERFORMANCE</span>
+            <h3>Power, precisely.</h3>
+            <p>
+              Independent motors continuously distribute torque to each axle
+              for immediate response and unshakable control.
+            </p>
+            <div class="detail-stat"><strong>1,020</strong><small>Nm torque</small></div>
+          </article>
+          <article class="detail-card" data-detail="light">
+            <span>03 / INTELLIGENCE</span>
+            <h3>See beyond.</h3>
+            <p>
+              Adaptive matrix lamps shape the beam around traffic and corners,
+              illuminating the road without dazzling other drivers.
+            </p>
+            <div class="detail-stat"><strong>600</strong><small>m visibility</small></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="specs" id="specs">
+        <p class="eyebrow"><span></span> The numbers</p>
+        <div class="spec-row"><span>Architecture</span><strong>800V electric</strong></div>
+        <div class="spec-row"><span>Fast charge</span><strong>10–80% in 18 min</strong></div>
+        <div class="spec-row"><span>Top speed</span><strong>310 km/h</strong></div>
+        <div class="spec-row"><span>Drive</span><strong>All-wheel drive</strong></div>
+      </section>
+    </main>
+
+    <div class="feature-modal" role="dialog" aria-modal="true" aria-hidden="true">
+      <button class="modal-close" aria-label="Close feature detail">×</button>
+      <p class="modal-index">01 / TECHNOLOGY</p>
+      <h2 class="modal-title">Active aerodynamics</h2>
+      <p class="modal-copy"></p>
+      <div class="modal-value"></div>
+    </div>
+    <div class="modal-backdrop"></div>
+
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
